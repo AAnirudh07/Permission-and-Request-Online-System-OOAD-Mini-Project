@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <title>Request Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        color: azure;
+        background-color: rgba(65, 55, 55, 0.253);
+        border: 3px solid rgb(0, 0, 0);
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    input[type=email],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        color: azure;
+        background-color: rgba(65, 55, 55, 0.253);
+        border: 3px solid rgb(0, 0, 0);
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    input[type=number],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        color: azure;
+        background-color: rgba(65, 55, 55, 0.253);
+        border: 3px solid rgb(0, 0, 0);
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    input[type=submit] {
+        background-color: rgb(0, 0, 0);
+        color: beige;
+        padding: 12px 20px;
+        border: 1px solid #45a049;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+        border: none;
+    }
+
+    input[type=reset] {
+        background-color: rgb(0, 0, 0);
+        color: beige;
+        padding: 12px 20px;
+        border: 1px solid #e48204;
+        border-radius: 4px;
+        cursor: pointer;
+        float: left;
+    }
+
+    input[type=reset]:hover {
+        background-color: #e45700;
+        border: none;
+    }
+
+    input[type=date] {
+        background-color: azure;
+        width: 15%;
+        border-radius: 10%;
+        color: black;
+        border: none;
+        padding: 12px 20px;
+    }
+
+    select,
+    textarea {
+        background-color: transparent;
+        color: aliceblue;
+    }
+
+    option {
+        color: aliceblue;
+        background-color: black;
+        line-height: 8px;
+        font-size: medium;
+    }
+
+    .container {
+        border-radius: 5px;
+        background-color: rgba(146, 29, 150, 0.5);
+
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <h1 style="font-size: 50px;color: rgb(2, 51, 51);">Hostel Leave Form</h1>
+    <br><br>
+    <h2 style="font-family:'Lucida Sans';">
+        <div class="container">
+            <form id="reqform" name="request" method="get">
+                <label for="fname">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your name.." pattern="' '|[a-zA-Z ]*"
+                    oninvalid="alert('Please enter valid data');" required>
+                <label for="phoneno">Phone number</label>
+                <input name="contact number" type="number" placeholder="Your mobile no.."
+                    oninvalid="alert('Please enter valid data');" pattern="[0-9]{1,10}" required />
+                    <label for="email">Mail Id</label>
+                    <input type="email" id="email" name="mailid" placeholder="Your mail id.." required>
+                <label for="year">Year</label>
+                <input type="number" id="year" name="year" pattern="[1-4]" placeholder="Enter Year" required><br><br>
+                <label><input type="checkbox" name="type" value="Hostel Leave Form" checked required>Hostel Leave Form</label><br>
+                <label>Date Leaving:</label><br>
+                <input name="from" id="from" type="date" required><br>
+                <label>Date Returning:</label><br>
+                <input name="to" id="to" type="date" required><br><br><br>
+                <label for="reason">Type the reason </label>
+                <textarea id="reason" name="reason" placeholder="Your Reason here..."
+                    style="height: 100px;" required></textarea>
+                <label>Request letter: <input type="file" name="proof" value="Request letter" /> </label>
+<br><br>
+                <input type="submit" value="Submit">
+                <input type="reset">
+
+            </form>
+        </div>
+    </h2>
+</body>
+
+</html>

@@ -5,3 +5,8 @@ Install the following packages using npm:
       express
       nodemon
       mysql2
+
+Install the following ORM for mySQL using npm:
+
+      sequelize
+      sequelize-cli

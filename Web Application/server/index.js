@@ -7,4 +7,4 @@ db.sequelize.sync().then(() => {
         console.log('server running on port 3001');
     });    
 });
-
+ 

@@ -22,9 +22,11 @@ app.post('/register', (req, res) => {
     const password = req.body.password;
     const userAppName = req.body.userAppName;
     const profilePhoto = req.body.profilePhoto;
+    const userType = req.body.userType;
+
     db.query(
-    "INSERT INTO users (username, password, userAppName, profilePhoto) VALUES (?,?,?,?)", 
-    [username, password, userAppName, profilePhoto], 
+    "INSERT INTO users (username, password, userAppName, profilePhoto, userType) VALUES (?,?,?,?,?)", 
+    [username, password, userAppName, profilePhoto, userType], 
     (err, result) => {
         console.log(err);
     });

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "./App.css";
+import { Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
   const [passwordReg, setPasswordReg]  = useState('');
   const [usernameReg, setUsernameReg]  = useState('');
   const [picReg, setPicReg]  = useState('');
+  const [typeReg, setTypeReg] = useState('');
 
   //login details
   const [emailID, setEmailID]  = useState('');
@@ -24,6 +26,7 @@ function App() {
       password: passwordReg,
       userAppName: usernameReg,
       profilePhoto:  picReg,
+      userType: typeReg,
     }).then((response) => {
       console.log(response);
     });
@@ -62,10 +65,18 @@ function App() {
         <br />
         <button onClick={login}>Login</button>
       </div>
-
+      
 
       <div className="registration">
       <h1>Create an Account</h1>
+      <div>
+        <label>User Type: </label>
+        <br />
+        Student<input type="radio" checked={typeReg=="Student"} onChange={() => setTypeReg("Student")} />
+        <br />
+        Faculty<input type="radio" checked={typeReg=="Faculty"} onChange={() => setTypeReg("Faculty")} />
+      </div>
+      <br />
       <label>Email-ID:   </label>
       <input type="text" onChange={(e) => {
         setEmailIDReg(e.target.value);

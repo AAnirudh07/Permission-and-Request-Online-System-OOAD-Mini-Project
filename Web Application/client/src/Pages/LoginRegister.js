@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import "./loginRegister.css";
-import { useHistory } from "react-router-dom";
+import "./LoginRegister.css";
+import { useNavigate } from "react-router-dom";
 
-function loginRegister() {
+function LoginRegister() {
+
+  let navigate = useNavigate();
 
   //registration details
   const [emailIDReg, setEmailIDReg]  = useState('');
@@ -38,21 +40,30 @@ function loginRegister() {
       username: emailID,
       password: password,
     }).then((response) => {
+      
       if (response.data.message) {
         setLoginStatus(response.data.message);
       }
       else{
-        setLoginStatus(response.data[0].username);
+
+        if(response.data[0].userType=="Student") {
+          navigate("/studentProfile", 
+          { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto } });
+        }
+        else {
+          navigate("/facultyProfile", 
+          { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto } });
+        }
       }
     });
   };
 
   return (
-    <div className="App">
+    <div className="LoginRegister">
       <div className="login">
         <h1>Login to your Account</h1>
         <label>Email-ID: </label>
-        <input type="text" placeholder="abcde123@gmail.com" onChange={(e) => {
+        <input id="uname" type="text" placeholder="abcde123@gmail.com" onChange={(e) => {
         setEmailID(e.target.value);
       }}/>
         <br />
@@ -110,4 +121,4 @@ function loginRegister() {
   );
 }
 
-export default loginRegister;
+export default LoginRegister;

@@ -15,7 +15,7 @@ function StudentLandingPage() {
             <div>
                 <p>
                     <h3>{userAppName}</h3>
-                    <h3>{profilePhoto}</h3>
+                    <img src={profilePhoto} alt="user profile photo" />
                 </p>
             </div>
 

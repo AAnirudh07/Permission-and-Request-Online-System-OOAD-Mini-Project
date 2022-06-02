@@ -77,7 +77,7 @@ function form4() {
                                 setreason(e.target.value);
                               }}></textarea>
                         
-                        <br><br>
+                        <br /><br />
                             <input type="submit" value="Submit" />
                             <input type="reset" />
                         </div>

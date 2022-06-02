@@ -67,7 +67,7 @@ function form1() {
                     <label>Date Returning:</label><br />
                     <input name="to" id="to" type="date" required onChange={(e) => {
         settdate(e.target.value);
-      }}/><br /><br><br>
+      }}/><br /><br /><br />
                         <label for="reason">Type the reason </label>
                         <textarea id="reason" name="reason" placeholder="Your Reason here..."
                             style="height: 100px;" required onChange={(e) => {
@@ -77,7 +77,7 @@ function form1() {
                          onChange={(e) => {
                             setreasonletter(e.target.value);
                           }}/> </label>
-                        <br><br>
+                        <br /><br />
                             <input type="submit" value="Submit" />
                             <input type="reset" />
                         </div>

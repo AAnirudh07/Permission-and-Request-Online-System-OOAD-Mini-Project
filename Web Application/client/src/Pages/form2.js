@@ -68,7 +68,7 @@ function form2() {
       }}/><br />
                     <label>Date:</label><br />
                     <input name="to" id="to" type="date" required onChange={(e) => {
-        settdate(e.target.value); }} /><br /><br><br>
+        settdate(e.target.value); }} /><br /><br /><br />
       <label for="time">Time Leaving</label>
                 <input type="text" id="time" name="time" placeholder="Enter time.." required onChange={(e) => {
         settime(e.target.value); }}></input>
@@ -81,7 +81,7 @@ function form2() {
                          onChange={(e) => {
                             setreasonletter(e.target.value);
                           }}/> </label>
-                        <br><br>
+                        <br /><br />
                             <input type="submit" value="Submit" />
                             <input type="reset" />
                         </div>

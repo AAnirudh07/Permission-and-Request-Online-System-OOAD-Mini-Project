@@ -15,22 +15,43 @@ const db = mysql.createConnection({
   database: "pros_db",
 });
 
-app.post('/req1', (req, res) => {
+app.post('/register', (req, res) => {
     
-  const name = req.uname;
-  const phno = req.uphno;
-  const emailID = req.uemailID;
-  const year = req.uyear;
-  const reason = req.ureason;
-  const fdate = req.ufdate;
-  const tdate = req.utdate;
-  const letter = req.letter;
+  const username = req.body.username;
+  const password = req.body.password;
+  const userAppName = req.body.userAppName;
+  const profilePhoto = req.body.profilePhoto;
+  const userType = req.body.userType;
 
   db.query(
-  "INSERT INTO hostelleave (name, phno, emailID, year, reason, fdate, tdate, letter) VALUES (?,?,?,?,?,?,?,?)", 
-  [name, phno, emailID, year, reason, fdate, tdate, letter], 
+  "INSERT INTO users (username, password, userAppName, profilePhoto, userType) VALUES (?,?,?,?,?)", 
+  [username, password, userAppName, profilePhoto, userType], 
   (err, result) => {
       console.log(err);
+  });
+
+});
+
+
+app.post("/login", (req, res) => {
+  
+  const username = req.body.username;
+  const password = req.body.password;
+  db.query(
+  "SELECT * FROM users where username = ? AND password = ?", 
+  [username, password], 
+  (err, result) => {
+      
+      if(err) {
+          //console.log(err);
+          res.send({err:err});
+      }
+      if (result.length > 0) {
+          res.send(result);
+      }
+      else {
+          res.send({message:"Wrong Username & Password Combination"});
+      }
   });
 
 });

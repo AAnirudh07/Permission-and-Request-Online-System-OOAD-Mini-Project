@@ -18,8 +18,6 @@ function Form2() {
     const [time, settime] = useState('');
     const [reasonletter, setreasonletter] = useState('');
 
-
-
     const request = () => {
         Axios.post("http://localhost:3001/req2", {
             uname: name,

@@ -22,6 +22,8 @@ function App() {
                 <Route path="/form1" element={<Form1 />}></Route>
                 <Route path="/form2" element={<Form2 />}></Route>
                 <Route path="/form3" element={<Form3 />}></Route>
+                <Route path="/form4" element={<Form4 />}></Route>
+                <Route path="/form5" element={<Form5 />}></Route>
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </Router>

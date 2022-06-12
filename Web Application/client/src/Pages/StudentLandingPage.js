@@ -23,10 +23,10 @@ function StudentLandingPage() {
         navigate("/form3",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                        
     }
     const goto4 = () => {
-        
+        navigate("/form4",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                                
     }
     const goto5 = () => {
-        
+        navigate("/form5",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                        
     }
 
 

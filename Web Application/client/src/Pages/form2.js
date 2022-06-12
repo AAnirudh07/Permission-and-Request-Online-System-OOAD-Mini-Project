@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "./form.css";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Form2() {
 
     let navigate = useNavigate();
+    const { state } = useLocation();
+    const {userAppName, profilePhoto } = state;
 
     //registration details
     const [name, setname] = useState('');
@@ -30,7 +33,13 @@ function Form2() {
             utime: time,
             letter: reasonletter
         }).then((response) => {
-            console.log(response);
+            if(response.data.message == "Success!") {
+                window.alert(response.data.message);
+                navigate("/studentProfile",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });
+              }
+              else{
+                window.alert(response.data.message);
+              }  
         });
     };
 return (
@@ -63,9 +72,9 @@ return (
                 <label for="reason">Type the reason </label>
                 <input type="text" id="reason" name="reason" placeholder="Your Reason here..." required onChange={(e) => {setreason(e.target.value);}}/>
                 <label>Request letter:</label>
-                <input type="text" name="proof" value="Request letter" onChange={(e) => {setreasonletter(e.target.value);}}/>
+                <input type="text" name="proof" onChange={(e) => {setreasonletter(e.target.value);}}/>
                 <br /><br />
-                <input type="submit" value="Submit" onClick={request}/>
+                <input type="submit" value="Submit" onClick={request} />
                 <input type="reset" />
               </div>
       </div>

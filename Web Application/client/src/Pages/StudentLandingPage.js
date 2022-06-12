@@ -16,7 +16,7 @@ function StudentLandingPage() {
     }
 
     const goto2 = () => {
-        
+        navigate("/form2",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                
     }
 
     const goto3 = () => {

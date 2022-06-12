@@ -29,10 +29,13 @@ function StudentLandingPage() {
         navigate("/form5",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                        
     }
 
+    const viewReq = () => {
+        navigate("/studentView",{ state: { userAppName: userAppName, profilePhoto: profilePhoto, username: username}})
+    }
 
     let location = useLocation()
     const { state } = useLocation();
-    const { userAppName, profilePhoto } = state;
+    const { userAppName, profilePhoto, username } = state;
 
     return (
         <div className="StudentLandingPage">
@@ -40,7 +43,7 @@ function StudentLandingPage() {
             <h2>You are logged in</h2>
             <div>
                 <p>
-                    <h3>{userAppName}</h3>
+                    <h2>{userAppName}</h2>
                     <img src={profilePhoto} alt="user profile photo" />
                 </p>
             </div>
@@ -51,6 +54,9 @@ function StudentLandingPage() {
             <button style={{margin:10}} onClick={goto3}>On-Duty Form</button>
             <button style={{margin:10}} onClick={goto4}>Documents Request Form</button>
             <button style={{margin:10}} onClick={goto5}>Other Permissions</button>
+            <br />
+            <br />
+            <button onClick={viewReq}>View Requests</button>
             <br />
             <br />
             <button onClick={logout}>Logout</button>

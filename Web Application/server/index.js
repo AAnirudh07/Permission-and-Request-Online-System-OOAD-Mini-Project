@@ -90,6 +90,23 @@ app.post('/req1', (req, res) => {
 
 });
 
+app.post('/get1', (req,res) => {
+  const name = req.body.username;
+  db.query(
+    "SELECT * FROM hostelleave WHERE name = ?",
+    [name],
+    (err, result) => {
+      console.log(res);
+      if(result.length>0) {
+        res.send({message:"Pending!"});
+      }
+      else {
+        res.send({message:"You have not made any recent request!"});
+      }
+    }
+  )
+});
+
 app.post('/res1', (req, res) => {
     
   const name = req.uname;
@@ -132,6 +149,25 @@ app.post('/req2', (req, res) => {
 
 });
 
+
+app.post('/get2', (req,res) => {
+  const name = req.body.username;
+  db.query(
+    "SELECT * FROM earlyleave WHERE name = ?",
+    [name],
+    (err, result) => {
+      console.log(res);
+      if(result.length>0) {
+        res.send({message:"Pending!"});
+      }
+      else {
+        res.send({message:"You have not made any recent request!"});
+      }
+    }
+  )
+});
+
+
 app.post('/res2', (req, res) => {
     
   const name = req.uname;
@@ -170,10 +206,25 @@ app.post('/req3', (req, res) => {
       res.send({message: "Success!"});
     }
   });
-
-
-
 });
+
+app.post('/get3', (req,res) => {
+  const name = req.body.username;
+  db.query(
+    "SELECT * FROM onduty WHERE name = ?",
+    [name],
+    (err, result) => {
+      console.log(res);
+      if(result.length>0) {
+        res.send({message:"Pending!"});
+      }
+      else {
+        res.send({message:"You have not made any recent request!"});
+      }
+    }
+  )
+});
+
 
 app.post('/res3', (req, res) => {
     
@@ -215,6 +266,24 @@ app.post('/req4', (req, res) => {
 
 });
 
+app.post('/get4', (req,res) => {
+  const name = req.body.username;
+  db.query(
+    "SELECT * FROM reqdoc WHERE name = ?",
+    [name],
+    (err, result) => {
+      console.log(res);
+      if(result.length>0) {
+        res.send({message:"Pending!"});
+      }
+      else {
+        res.send({message:"You have not made any recent request!"});
+      }
+    }
+  )
+});
+
+
 app.post('/res4', (req, res) => {
     
   const name = req.uname;
@@ -253,6 +322,24 @@ app.post('/req5', (req, res) => {
   });
 
 });
+
+app.post('/get5', (req,res) => {
+  const name = req.body.username;
+  db.query(
+    "SELECT * FROM otherreq WHERE name = ?",
+    [name],
+    (err, result) => {
+      console.log(res);
+      if(result.length>0) {
+        res.send({message:"Pending!"});
+      }
+      else {
+        res.send({message:"You have not made any recent request!"});
+      }
+    }
+  )
+});
+
 
 app.post('/res5', (req, res) => {
     

@@ -51,11 +51,11 @@ function LoginRegister() {
 
         if(response.data[0].userType=="Student") {
           navigate("/studentProfile", 
-          { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto } });
+          { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto, username: response.data[0].username } });
         }
         else {
           navigate("/facultyProfile", 
-          { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto } });
+          { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto, username: response.data[0].username } });
         }
       }
     });

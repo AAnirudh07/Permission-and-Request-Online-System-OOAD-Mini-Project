@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useLocation } from "react-router-dom";
 import "./FacultyRequestPage.css";
+import { useNavigate } from "react-router-dom";
 
 function FacultyRequestPage() {
 
@@ -13,7 +14,6 @@ function FacultyRequestPage() {
     const request = () => {
         Axios.post("http://localhost:3001/res1", {
             	uname: uname,
-		decision: action,
         }).then((response) => {
             console.log(response);
         })

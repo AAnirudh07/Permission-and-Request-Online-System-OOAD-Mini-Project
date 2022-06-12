@@ -9,12 +9,13 @@ import Form2 from "./Pages/Form2";
 import Form3 from "./Pages/Form3";
 import Form4 from "./Pages/Form4";
 import Form5 from "./Pages/Form5";
+import FacultyRequestPage from "./Pages/FacultyRequestPage"; 
 function App() {
 
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Form5 />} />
+                <Route path="/" element={<FacultyRequestPage />} />
                 <Route path="/studentProfile" element={<StudentLandingPage />} />
                 <Route path="/facultyProfile" element={<FacultyLandingPage />} />
                 <Route path="/form1" element={<Form1 />}></Route>

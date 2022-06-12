@@ -11,6 +11,7 @@ import Form4 from "./Pages/Form4";
 import Form5 from "./Pages/Form5";
 import FacultyRequestPage from "./Pages/FacultyRequestPage"; 
 import StudentViewReq from "./Pages/StudentViewReq";
+import Aform1 from "./Pages/Aform1";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/form3" element={<Form3 />}></Route>
                 <Route path="/form4" element={<Form4 />}></Route>
                 <Route path="/form5" element={<Form5 />}></Route>
+                <Route path="/aform1" element={<Aform1 />}></Route>
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </Router>

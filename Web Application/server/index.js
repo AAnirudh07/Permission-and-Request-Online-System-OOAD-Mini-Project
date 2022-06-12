@@ -108,20 +108,29 @@ app.post('/get1', (req,res) => {
 });
 
 app.post('/res1', (req, res) => {
-    
-  const name = req.uname;
-  const decision=req.decision;
 
   db.query(
-  "INSERT INTO hostelleave (decision) VALUES (?) where name = ?", 
-  [decision, name], 
+  "SELECT * FROM hostelleave", 
   (err, result) => {
-      console.log(err);
+      if(err) {
+        res.send({err:err});
+      }
+      else{
+        res.send(result);
+      }
   });
 
 });
 
+app.post("/clean1", (req,res) => {
 
+  db.query(
+    "DELETE FROM hostelleave where decision is NULL",
+    (err,result) => {
+      console.log(err);
+      res.send({message:"Complete!"})      
+    });
+});
 
 app.post('/req2', (req, res) => {
     

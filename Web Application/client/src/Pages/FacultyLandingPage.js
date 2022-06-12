@@ -15,21 +15,21 @@ function facultyLandingPage() {
     }
     
     const goto1 = () => {
-        navigate("/form1",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });        
+        navigate("/aform1",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });        
     }
 
     const goto2 = () => {
-        navigate("/form2",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                
+        navigate("/aform2",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                
     }
 
     const goto3 = () => {
-        navigate("/form3",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                        
+        navigate("/aform3",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                        
     }
     const goto4 = () => {
-        navigate("/form4",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                                
+        navigate("/aform4",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                                
     }
     const goto5 = () => {
-        navigate("/form5",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                        
+        navigate("/aform5",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });                        
     }
 
     return (
@@ -42,11 +42,11 @@ function facultyLandingPage() {
                     <img src={profilePhoto} alt="user profile photo" />
                 </p>
             </div>
-            <button onClick={goto1}>Hostel Leave Form [Hostelers]</button>
-            <button style={{margin:10}} onClick={goto2}>Early Leave Form [Day Scholars]</button>
-            <button style={{margin:10}} onClick={goto3}>On-Duty Form</button>
-            <button style={{margin:10}} onClick={goto4}>Documents Request Form</button>
-            <button style={{margin:10}} onClick={goto5}>Other Permissions</button>
+            <button onClick={goto1}>View Hostel Leave Requests</button>
+            <button style={{margin:10}} onClick={goto2}>View Early Leave Requests</button>
+            <button style={{margin:10}} onClick={goto3}>View On-Duty Requests</button>
+            <button style={{margin:10}} onClick={goto4}>View Document Requests</button>
+            <button style={{margin:10}} onClick={goto5}>View Other General Requests</button>
             <br />
             <br />
             <button onClick={logout}>Logout</button>

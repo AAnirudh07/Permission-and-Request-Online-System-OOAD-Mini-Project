@@ -176,19 +176,29 @@ app.post('/get2', (req,res) => {
   )
 });
 
-
 app.post('/res2', (req, res) => {
-    
-  const name = req.uname;
-  const decision=req.decision;
 
   db.query(
-  "INSERT INTO earlyleave (decision) VALUES (?) where name = ?", 
-  [decision, name], 
+  "SELECT * FROM earlyleave", 
   (err, result) => {
-      console.log(err);
+      if(err) {
+        res.send({err:err});
+      }
+      else{
+        res.send(result);
+      }
   });
 
+});
+
+app.post("/clean2", (req,res) => {
+
+  db.query(
+    "DELETE FROM earlyleave where decision is NULL",
+    (err,result) => {
+      console.log(err);
+      res.send({message:"Complete!"})      
+    });
 });
 
 app.post('/req3', (req, res) => {
@@ -234,20 +244,31 @@ app.post('/get3', (req,res) => {
   )
 });
 
-
 app.post('/res3', (req, res) => {
-    
-  const name = req.uname;
-  const decision=req.decision;
 
   db.query(
-  "INSERT INTO onduty (decision) VALUES (?) where name = ?", 
-  [decision, name], 
+  "SELECT * FROM onduty", 
   (err, result) => {
-      console.log(err);
+      if(err) {
+        res.send({err:err});
+      }
+      else{
+        res.send(result);
+      }
   });
 
 });
+
+app.post("/clean3", (req,res) => {
+
+  db.query(
+    "DELETE FROM onduty where decision is NULL",
+    (err,result) => {
+      console.log(err);
+      res.send({message:"Complete!"})      
+    });
+});
+
 
 app.post('/req4', (req, res) => {
 
@@ -294,17 +315,28 @@ app.post('/get4', (req,res) => {
 
 
 app.post('/res4', (req, res) => {
-    
-  const name = req.uname;
-  const decision=req.decision;
 
   db.query(
-  "INSERT INTO reqdoc (decision) VALUES (?) where name = ?", 
-  [decision, name], 
+  "SELECT * FROM reqdoc", 
   (err, result) => {
-      console.log(err);
+      if(err) {
+        res.send({err:err});
+      }
+      else{
+        res.send(result);
+      }
   });
 
+});
+
+app.post("/clean4", (req,res) => {
+
+  db.query(
+    "DELETE FROM reqdoc where decision is NULL",
+    (err,result) => {
+      console.log(err);
+      res.send({message:"Complete!"})      
+    });
 });
 
 app.post('/req5', (req, res) => {
@@ -351,17 +383,28 @@ app.post('/get5', (req,res) => {
 
 
 app.post('/res5', (req, res) => {
-    
-  const name = req.uname;
-  const decision=req.decision;
 
   db.query(
-  "INSERT INTO otherreq (decision) VALUES (?) where name = ?", 
-  [decision, name], 
+  "SELECT * FROM otherreq", 
   (err, result) => {
-      console.log(err);
+      if(err) {
+        res.send({err:err});
+      }
+      else{
+        res.send(result);
+      }
   });
 
+});
+
+app.post("/clean5", (req,res) => {
+
+  db.query(
+    "DELETE FROM otherreq where decision is NULL",
+    (err,result) => {
+      console.log(err);
+      res.send({message:"Complete!"})      
+    });
 });
 
 

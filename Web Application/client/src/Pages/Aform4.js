@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Axios from "axios";
 
-function Aform2() {
+function Aform4() {
 
 
     let resString = "<table border=\"2px solid\"><tr><th>Name</th><th>Request</th><th>Accept/Reject</th></tr>";
@@ -13,8 +13,8 @@ function Aform2() {
     const { state } = useLocation();
     const { userAppName, profilePhoto, username } = state;
     
-    const getForm2 = () => {
-        Axios.post("http://localhost:3001/res2").then((response) => {
+    const getForm4 = () => {
+        Axios.post("http://localhost:3001/res4").then((response) => {
             console.log(response);
             for(let i=0;i<response.data.length;i++) { 
                 resString += "<tr><td>" + response.data[i].name + "</td><td>" + response.data[i].reason + 
@@ -29,8 +29,8 @@ function Aform2() {
         });
     };
 
-    const clearForm2 = () => {
-        Axios.post("http://localhost:3001/clean2").then((response) =>{
+    const clearForm4 = () => {
+        Axios.post("http://localhost:3001/clean4").then((response) =>{
             console.log("Cleaned!");
             window.alert("Notification sent to students!");
             navigate("/facultyProfile", { state: {userAppName: userAppName, profilePhoto: profilePhoto, username: username}});
@@ -39,16 +39,16 @@ function Aform2() {
 
     return (
         <div>
-            <h1>Early Leave Form Responses</h1>
-            <button onClick={getForm2}>Get Responses</button>
+            <h1>On Duty Form Responses</h1>
+            <button onClick={getForm4}>Get Responses</button>
             <br />
             <br />
             <div align="center">
             <div style={{display: "None", margin: "10px", fontSize: "16px"}} id="disp"></div>  
             <br />
-            <button style={{display: "None"} } id="disp1" onClick={clearForm2}>Submit Responses</button>          
+            <button style={{display: "None"} } id="disp1" onClick={clearForm4}>Submit Responses</button>          
             </div>
         </div>
     );
 }
-export default Aform2;
+export default Aform4;

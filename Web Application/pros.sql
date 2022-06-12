@@ -1,7 +1,17 @@
 CREATE DATABASE pros1_db;
 USE pros1_db;
 
-CREATE TABLE onduty(
+
+CREATE TABLE users(
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    userAppName VARCHAR(100) NOT NULL,
+    profilePhoto VARCHAR(100) NOT NULL,
+    userType VARCHAR(45) NOT NULL,
+    PRIMARY KEY(username);
+);
+
+CREATE TABLE hostelleave(
 name VARCHAR(100) NOT NULL,
 phno INT(11) NOT NULL,
 emailID VARCHAR(200) NOT NULL,

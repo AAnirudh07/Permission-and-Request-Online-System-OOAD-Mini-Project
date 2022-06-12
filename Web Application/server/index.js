@@ -66,20 +66,26 @@ app.post("/login", (req, res) => {
 
 app.post('/req1', (req, res) => {
     
-  const name = req.uname;
-  const phno = req.uphno;
-  const emailID = req.uemailID;
-  const year = req.uyear;
-  const reason = req.ureason;
-  const fdate = req.ufdate;
-  const tdate = req.utdate;
-  const letter = req.letter;
+  const name = req.body.uname;
+  const phno = req.body.uphno;
+  const emailID = req.body.uemailID;
+  const year = req.body.uyear;
+  const reason = req.body.ureason;
+  const fdate = req.body.ufdate;
+  const tdate = req.body.utdate;
+  const letter = req.body.letter;
+  const dep = req.body.udep;
 
   db.query(
-  "INSERT INTO hostelleave (name, phno, emailID, year, reason, fdate, tdate, letter) VALUES (?,?,?,?,?,?,?,?)", 
-  [name, phno, emailID, year, reason, fdate, tdate, letter], 
+  "INSERT INTO hostelleave (name, phno, emailID, year, reason, dep, fdate, tdate, letter) VALUES (?,?,?,?,?,?,?,?,?)", 
+  [name, phno, emailID, year, reason, dep, fdate, tdate, letter], 
   (err, result) => {
-      console.log(err);
+    if(err) {  
+      res.send({message: "You already have an outstanding request in this category!"});
+    }
+    else {
+      res.send({message: "Success!"});
+    }
   });
 
 });

@@ -1,9 +1,35 @@
 import React from "react";
 import { useLocation } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "./StudentLandingPage.css";
 
 function StudentLandingPage() {
     
+    let navigate = useNavigate();
+
+    const logout = () => {
+        navigate("/");
+    }
+    
+    const goto1 = () => {
+        navigate("/form1",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });        
+    }
+
+    const goto2 = () => {
+        
+    }
+
+    const goto3 = () => {
+        
+    }
+    const goto4 = () => {
+        
+    }
+    const goto5 = () => {
+        
+    }
+
+
     let location = useLocation()
     const { state } = useLocation();
     const { userAppName, profilePhoto } = state;
@@ -18,7 +44,16 @@ function StudentLandingPage() {
                     <img src={profilePhoto} alt="user profile photo" />
                 </p>
             </div>
-
+            <br />
+            <br />
+            <button onClick={goto1}>Hostel Leave Form [Hostelers]</button>
+            <button style={{margin:10}} onClick={goto2}>Early Leave Form [Day Scholars]</button>
+            <button style={{margin:10}} onClick={goto3}>On-Duty Form</button>
+            <button style={{margin:10}} onClick={goto4}>Documents Request Form</button>
+            <button style={{margin:10}} onClick={goto5}>Other Permissions</button>
+            <br />
+            <br />
+            <button onClick={logout}>Logout</button>
         </div>
     );
 }

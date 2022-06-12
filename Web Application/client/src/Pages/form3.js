@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "./form.css";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Form3() {
 
     let navigate = useNavigate();
+    const { state } = useLocation();
+    const {userAppName, profilePhoto } = state;
 
     //registration details
     const [name, setname] = useState('');
@@ -34,7 +37,13 @@ function Form3() {
             uttime: ttime,
             letter: reasonletter
         }).then((response) => {
-            console.log(response);
+            if(response.data.message == "Success!") {
+                window.alert(response.data.message);
+                navigate("/studentProfile",{ state: { userAppName: userAppName, profilePhoto: profilePhoto } });
+              }
+              else{
+                window.alert(response.data.message);
+              }  
         });
     };
 

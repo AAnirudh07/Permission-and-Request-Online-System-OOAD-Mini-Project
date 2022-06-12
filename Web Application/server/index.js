@@ -81,7 +81,7 @@ app.post('/req1', (req, res) => {
   [name, phno, emailID, year, reason, dep, fdate, tdate, letter], 
   (err, result) => {
     if(err) {  
-      res.send({message: "You already have an outstanding request in this category!"});
+      res.send({message: "Please make sure you have filled in the correct details! You have either have an outstanding request or have not filled out the fields properly!"});
     }
     else {
       res.send({message: "Success!"});
@@ -123,12 +123,11 @@ app.post('/req2', (req, res) => {
   [name, phno, emailID, year, reason, dep, tdate, time, letter], 
   (err, result) => {
     if(err) {  
-      res.send({message: "You already have an outstanding request in this category!"});
+      res.send({message: "Please make sure you have filled in the correct details! You have either have an outstanding request or have not filled out the fields properly!"});
     }
     else {
       res.send({message: "Success!"});
     }
-
   });
 
 });
@@ -149,23 +148,30 @@ app.post('/res2', (req, res) => {
 
 app.post('/req3', (req, res) => {
     
-  const name = req.uname;
-  const phno = req.uphno;
-  const emailID = req.uemailID;
-  const year = req.uyear;
-  const reason = req.ureason;
-  const dep = req.udep;
-  const tdate = req.utdate;
-  const ftime = req.uftime;
-  const ttime = req.uttime;
-  const letter = req.letter;
+  const name = req.body.uname;
+  const phno = req.body.uphno;
+  const emailID = req.body.uemailID;
+  const year = req.body.uyear;
+  const reason = req.body.ureason;
+  const dep = req.body.udep;
+  const tdate = req.body.utdate;
+  const ftime = req.body.uftime;
+  const ttime = req.body.uttime;
+  const letter = req.body.letter;
 
   db.query(
   "INSERT INTO onduty (name, phno, emailID, year, reason, dep, tdate, ftime, ttime, letter) VALUES (?,?,?,?,?,?,?,?,?,?)", 
   [name, phno, emailID, year, reason, dep, tdate, ftime, ttime, letter], 
   (err, result) => {
-      console.log(err);
+    if(err) {  
+      res.send({message: "Please make sure you have filled in the correct details! You have either have an outstanding request or have not filled out the fields properly!"});
+    }
+    else {
+      res.send({message: "Success!"});
+    }
   });
+
+
 
 });
 

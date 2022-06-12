@@ -1,5 +1,5 @@
-CREATE DATABASE pros1_db;
-USE pros1_db;
+CREATE DATABASE pros_db;
+USE pros_db;
 
 
 CREATE TABLE users(
@@ -8,7 +8,7 @@ CREATE TABLE users(
     userAppName VARCHAR(100) NOT NULL,
     profilePhoto VARCHAR(100) NOT NULL,
     userType VARCHAR(45) NOT NULL,
-    PRIMARY KEY(username);
+    PRIMARY KEY(username)
 );
 
 CREATE TABLE hostelleave(

@@ -27,7 +27,14 @@ app.post('/register', (req, res) => {
   "INSERT INTO users (username, password, userAppName, profilePhoto, userType) VALUES (?,?,?,?,?)", 
   [username, password, userAppName, profilePhoto, userType], 
   (err, result) => {
-      console.log(err);
+      if(err) {
+        //console.log(err);
+        res.send({message:err.code});
+    }
+    else {
+        res.send({message:"Success! Enter EMAIL ID and password to login!"});
+    }
+
   });
 
 });

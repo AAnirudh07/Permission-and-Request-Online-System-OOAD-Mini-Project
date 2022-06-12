@@ -18,8 +18,10 @@ function LoginRegister() {
   const [emailID, setEmailID]  = useState('');
   const [password, setPassword]  = useState('');
 
-  //login status
+  //login and register status
   const [loginStatus, setLoginStatus] = useState('');
+  const [regStatus, setRegStatus] = useState('');
+
 
   //pass register data to backend
   const register = () => {
@@ -31,6 +33,7 @@ function LoginRegister() {
       userType: typeReg,
     }).then((response) => {
       console.log(response);
+      setRegStatus(response.data.message);
     });
   };
 
@@ -76,8 +79,11 @@ function LoginRegister() {
         <br />
         <button onClick={login}>Login</button>
       </div>
-      
-
+      <h1 style={{color: "red"}}>{loginStatus}</h1>
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="registration">
       <h1>Create an Account</h1>
       <div>
@@ -114,9 +120,7 @@ function LoginRegister() {
       <br />
       <button onClick={register}>Register</button>
       </div>
-    
-      <h1>{loginStatus}</h1>
-
+      <h1>{regStatus}</h1>
     </div>
   );
 }

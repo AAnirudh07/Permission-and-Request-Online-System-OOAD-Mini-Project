@@ -5,12 +5,13 @@ import StudentLandingPage from "./Pages/StudentLandingPage";
 import FacultyLandingPage from "./Pages/FacultyLandingPage";
 import ErrorPage from "./Pages/ErrorPage";
 import Form1 from "./Pages/Form1";
+import Form2 from "./Pages/Form2";
 function App() {
 
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Form1 />} />
+                <Route path="/" element={<Form2 />} />
                 <Route path="/studentProfile" element={<StudentLandingPage />} />
                 <Route path="/facultyProfile" element={<FacultyLandingPage />} />
                 <Route path="/form1" element={<Form1 />}></Route>

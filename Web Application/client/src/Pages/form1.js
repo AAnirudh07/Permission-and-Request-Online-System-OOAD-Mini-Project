@@ -68,11 +68,10 @@ function Form1() {
                 setreasonletter(e.target.value);}}/> </label>
               <br />
               <br />
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" onClick={request}/>
               <input type="reset" />
             </div>
         </div>
-
-                        );
+    );
 }
 export default Form1;

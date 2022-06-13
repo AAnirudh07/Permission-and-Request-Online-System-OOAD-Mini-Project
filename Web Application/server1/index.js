@@ -20,14 +20,20 @@ catch(err){
     console.log(err);
 }
 app.post('/login',async(req,res) =>{
-    const email = req.body.email;
+    const email = req.body.username;
     const password = req.body.password;
     try{
-        const authentic = await auth.findOne({Email: email});
+        const authentic = await auth.findOne({email: email});
         if(!authentic)
+        {
+            console.log("Login Failed!");
             res.status(200).send({login: false});
-        if(authentic.Password ==password)
+        }
+        else if(authentic.Password ==password)
+        {
+            console.log("Login success!");
             res.status(200).send({login: true});
+        }
         else
             res.status(200).send({login: false});
     }
@@ -36,19 +42,6 @@ app.post('/login',async(req,res) =>{
     }
 })
 
-app.post('/user',async(req,res) =>{
-    const userData = user(req.body);
-    try{
-        console.log(userData);
-        await userData.save();
-        res.status(201).send(userData);
-    }
-    catch(err){
-        console.log(err);
-        res.status(500).send(err);
-    }
-})
-
-app.listen(5000,()=>{
-    console.log("Listening on Port 5000");
+app.listen(3001,()=>{
+    console.log("Listening on Port 3001");
 })

@@ -124,6 +124,7 @@ app.post('/res1', (req, res) => {
 
 app.post("/clean1", (req,res) => {
 
+
   db.query(
     "DELETE FROM hostelleave where decision is NULL",
     (err,result) => {

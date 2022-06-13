@@ -43,7 +43,8 @@ function LoginRegister() {
       username: emailID,
       password: password,
     }).then((response) => {
-      
+      console.log(response);
+/*
       if (response.data.message) {
         setLoginStatus(response.data.message);
       }
@@ -58,6 +59,7 @@ function LoginRegister() {
           { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto, username: response.data[0].username } });
         }
       }
+*/
     });
   };
 
@@ -66,13 +68,13 @@ function LoginRegister() {
       <div className="login">
         <h1>Login to your Account</h1>
         <label>Email-ID: </label>
-        <input id="uname" type="text" placeholder="abcde123@gmail.com" onChange={(e) => {
+        <input id="uname" type="text" name="email" placeholder="abcde123@gmail.com" onChange={(e) => {
         setEmailID(e.target.value);
       }}/>
         <br />
         <br />
         <label>Password: </label>
-        <input type="text" placeholder="****" onChange={(e) => {
+        <input type="text" placeholder="****" name="password" onChange={(e) => {
           setPassword(e.target.value);
         }}/>
         <br />

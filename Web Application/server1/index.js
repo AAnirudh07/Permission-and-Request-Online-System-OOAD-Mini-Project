@@ -1,7 +1,6 @@
 const express= require("express");
 const cors= require("cors");
 const mongoose= require("mongoose");
-const user= require("./model");
 const auth= require('./models/authmodel');
 const app = express();
 app.use(express.json());
@@ -24,12 +23,7 @@ app.post('/login',async(req,res) =>{
     const password = req.body.password;
     try{
         const authentic = await auth.findOne({email: email});
-        if(!authentic)
-        {
-            console.log("Login Failed!");
-            res.status(200).send({login: false});
-        }
-        else if(authentic.Password ==password)
+        if(authentic.password===password)
         {
             console.log("Login success!");
             res.status(200).send({login: true});

@@ -43,8 +43,7 @@ function LoginRegister() {
       username: emailID,
       password: password,
     }).then((response) => {
-      console.log(response);
-/*
+      //console.log(response);
       if (response.data.message) {
         setLoginStatus(response.data.message);
       }
@@ -59,7 +58,6 @@ function LoginRegister() {
           { state: { userAppName: response.data[0].userAppName, profilePhoto: response.data[0].profilePhoto, username: response.data[0].username } });
         }
       }
-*/
     });
   };
 
